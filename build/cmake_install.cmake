@@ -1,4 +1,4 @@
-# Install script for directory: /home/kde/Desktop/lab/sfml/snake
+# Install script for directory: /home/kde/Desktop/lab/sfml/snakeGame
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kde/Desktop/lab/sfml/snake/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kde/Desktop/lab/sfml/snakeGame/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

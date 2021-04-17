@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kde/Desktop/lab/sfml/snake
+CMAKE_SOURCE_DIR = /home/kde/Desktop/lab/sfml/snakeGame
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kde/Desktop/lab/sfml/snake/build
+CMAKE_BINARY_DIR = /home/kde/Desktop/lab/sfml/snakeGame/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kde/Desktop/lab/sfml/snake/build/CMakeFiles /home/kde/Desktop/lab/sfml/snake/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles /home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kde/Desktop/lab/sfml/snake/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named snake
+# Target rules for targets named snakeGame
 
 # Build rule for target.
-snake: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 snake
-.PHONY : snake
+snakeGame: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 snakeGame
+.PHONY : snakeGame
 
 # fast build rule for target.
-snake/fast:
-	$(MAKE) -f CMakeFiles/snake.dir/build.make CMakeFiles/snake.dir/build
-.PHONY : snake/fast
+snakeGame/fast:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/build
+.PHONY : snakeGame/fast
 
-snake.o: snake.cpp.o
+src/Snake.o: src/Snake.cpp.o
 
-.PHONY : snake.o
+.PHONY : src/Snake.o
 
 # target to build an object file
-snake.cpp.o:
-	$(MAKE) -f CMakeFiles/snake.dir/build.make CMakeFiles/snake.dir/snake.cpp.o
-.PHONY : snake.cpp.o
+src/Snake.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Snake.cpp.o
+.PHONY : src/Snake.cpp.o
 
-snake.i: snake.cpp.i
+src/Snake.i: src/Snake.cpp.i
 
-.PHONY : snake.i
+.PHONY : src/Snake.i
 
 # target to preprocess a source file
-snake.cpp.i:
-	$(MAKE) -f CMakeFiles/snake.dir/build.make CMakeFiles/snake.dir/snake.cpp.i
-.PHONY : snake.cpp.i
+src/Snake.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Snake.cpp.i
+.PHONY : src/Snake.cpp.i
 
-snake.s: snake.cpp.s
+src/Snake.s: src/Snake.cpp.s
 
-.PHONY : snake.s
+.PHONY : src/Snake.s
 
 # target to generate assembly for a file
-snake.cpp.s:
-	$(MAKE) -f CMakeFiles/snake.dir/build.make CMakeFiles/snake.dir/snake.cpp.s
-.PHONY : snake.cpp.s
+src/Snake.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Snake.cpp.s
+.PHONY : src/Snake.cpp.s
+
+src/snakeGame.o: src/snakeGame.cpp.o
+
+.PHONY : src/snakeGame.o
+
+# target to build an object file
+src/snakeGame.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/snakeGame.cpp.o
+.PHONY : src/snakeGame.cpp.o
+
+src/snakeGame.i: src/snakeGame.cpp.i
+
+.PHONY : src/snakeGame.i
+
+# target to preprocess a source file
+src/snakeGame.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/snakeGame.cpp.i
+.PHONY : src/snakeGame.cpp.i
+
+src/snakeGame.s: src/snakeGame.cpp.s
+
+.PHONY : src/snakeGame.s
+
+# target to generate assembly for a file
+src/snakeGame.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/snakeGame.cpp.s
+.PHONY : src/snakeGame.cpp.s
 
 # Help Target
 help:
@@ -158,10 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... snake"
-	@echo "... snake.o"
-	@echo "... snake.i"
-	@echo "... snake.s"
+	@echo "... snakeGame"
+	@echo "... src/Snake.o"
+	@echo "... src/Snake.i"
+	@echo "... src/Snake.s"
+	@echo "... src/snakeGame.o"
+	@echo "... src/snakeGame.i"
+	@echo "... src/snakeGame.s"
 .PHONY : help
 
 

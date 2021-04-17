@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  
 
-CXX_DEFINES = 
+CXX_DEFINES = -DSFML_STATIC
 
-CXX_INCLUDES = -I/home/kde/lib/SFML-2.5.1/include 
+CXX_INCLUDES = -I/home/kde/Desktop/lab/sfml/snakeGame/include -isystem /home/kde/Desktop/SFML-2.5.1-src/include 
 
