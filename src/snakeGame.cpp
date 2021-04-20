@@ -5,14 +5,14 @@
 #include "Snake.hpp"
 
 // Setting
-const unsigned int MAP_WIDTH = 600;
-const unsigned int MAP_HEIGHT = 800;
+const unsigned int MAP_WIDTH = 800;
+const unsigned int MAP_HEIGHT = 600;
 const float UNIT_WIDTH = 50.F;
 const float UNIT_HEIGHT = 50.F;
 
 int main() {
     // main window
-    sf::RenderWindow window(sf::VideoMode(MAP_HEIGHT,MAP_WIDTH), "Main Window");
+    sf::RenderWindow window(sf::VideoMode(MAP_WIDTH,MAP_HEIGHT), "Main Window");
 
     // vertical synchronization
     window.setVerticalSyncEnabled(true);
@@ -116,7 +116,7 @@ bool isPointInMap(const Point &point) {
     const unsigned int MAP_SIZE_X = MAP_WIDTH/UNIT_WIDTH;
     const unsigned int MAP_SIZE_Y = MAP_HEIGHT/UNIT_HEIGHT;
 
-    if(point.x>=0 && point.x<MAP_SIZE_X && point.y>=0 && point.y<MAP_SIZE_Y) { // ERROR!
+    if(point.x>=0 && point.x<MAP_SIZE_X && point.y>=0 && point.y<MAP_SIZE_Y) {
         return true;
     }
     else {
