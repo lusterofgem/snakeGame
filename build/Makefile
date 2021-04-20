@@ -123,6 +123,33 @@ snakeGame/fast:
 	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/build
 .PHONY : snakeGame/fast
 
+src/Point.o: src/Point.cpp.o
+
+.PHONY : src/Point.o
+
+# target to build an object file
+src/Point.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Point.cpp.o
+.PHONY : src/Point.cpp.o
+
+src/Point.i: src/Point.cpp.i
+
+.PHONY : src/Point.i
+
+# target to preprocess a source file
+src/Point.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Point.cpp.i
+.PHONY : src/Point.cpp.i
+
+src/Point.s: src/Point.cpp.s
+
+.PHONY : src/Point.s
+
+# target to generate assembly for a file
+src/Point.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Point.cpp.s
+.PHONY : src/Point.cpp.s
+
 src/Snake.o: src/Snake.cpp.o
 
 .PHONY : src/Snake.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... snakeGame"
+	@echo "... src/Point.o"
+	@echo "... src/Point.i"
+	@echo "... src/Point.s"
 	@echo "... src/Snake.o"
 	@echo "... src/Snake.i"
 	@echo "... src/Snake.s"
