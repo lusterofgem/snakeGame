@@ -6,21 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../include/Direction.hpp
-
-../include/Point.hpp
-
-../include/Snake.hpp
-vector
+../include/Fruit.hpp
+SFML/Graphics.hpp
 -
 Point.hpp
 ../include/Point.hpp
-Direction.hpp
-../include/Direction.hpp
 
-../include/snakeGame.hpp
-Snake.hpp
--
+../include/Point.hpp
 
 /home/kde/Desktop/SFML-2.5.1-src/include/SFML/Config.hpp
 TargetConditionals.h
@@ -692,21 +684,7 @@ SFML/Config.hpp
 
 /home/kde/Desktop/SFML-2.5.1-src/include/SFML/Window/WindowStyle.hpp
 
-/home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp
-iostream
--
-cmath
--
-cstdlib
--
-ctime
--
-SFML/Window.hpp
--
-SFML/Graphics.hpp
--
-snakeGame.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.hpp
-Snake.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.hpp
+/home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.cpp
+Fruit.hpp
+/home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.hpp
 
