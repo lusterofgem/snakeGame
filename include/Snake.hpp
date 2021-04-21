@@ -16,6 +16,7 @@ public:
 
     void moveTo(const Point &point);
     void moveTo(int x, int y);
+    void eat(const Point &point);
     void eat(int x, int y);
     size_t getSize();
     void reset();

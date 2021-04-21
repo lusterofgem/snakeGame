@@ -1,7 +1,9 @@
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 #include "snakeGame.hpp"
 #include "Snake.hpp"
 
@@ -17,20 +19,25 @@ const sf::Color &SNAKE_HEAD_COLOR = sf::Color(250,250,250);
 const sf::Color &SNAKE_TAIL_COLOR = sf::Color(150,150,150);
 const sf::Color &SNAKE_LEFT_EYE_COLOR = sf::Color(255,255,0);
 const sf::Color &SNAKE_RIGHT_EYE_COLOR = sf::Color(255,255,0);
+const sf::Color &FRUIT_COLOR = sf::Color(255, 0, 0);
 
 int main() {
+    // set seed
+    std::srand(std::time(nullptr));
+
     // main window
     sf::RenderWindow window(sf::VideoMode(MAP_WIDTH,MAP_HEIGHT), "Main Window");
 
     // vertical synchronization
     window.setVerticalSyncEnabled(true);
 
-    // Default snake
+    // Point snakeStartPoint();
+    // Game objects
     Snake snake({Point(5,5), Point(5,6), Point(5,7), Point(5,8), Point(5,9), Point(5,10)});
+    Point fruit = getRandomFruit();
 
     // Game timer
     sf::Clock clock;
-
 
     // main loop
     while(window.isOpen()) {
@@ -41,9 +48,21 @@ int main() {
             // std::cout << "Tick" << std::endl; //
             Point targetPoint = snake.getLookedPoint();
             if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
-                snake.printFaceDirection();
-                snake.moveTo(targetPoint);
+                if(targetPoint == fruit) {
+                    std::cout << "true\n";
+                    snake.eat(targetPoint);
+                    do {
+                        fruit = getRandomFruit();
+                    } while(snake.isPointOnBody(fruit));
+                }
+                else {
+                    std::cout << "false\n";
+                    snake.moveTo(targetPoint);
+                }
                 // std::cout << targetPoint.x << " " << targetPoint.y << std::endl;
+            }
+            else {
+                // Dead
             }
             clock.restart();
         }
@@ -106,11 +125,15 @@ int main() {
                         std::cout << "Enter" << std::endl;
                         break;
                     }
+                    case sf::Keyboard::Key::Escape: {
+                        std::cout << "Escape" << std::endl;
+                    }
                 }
             }
         }
         window.clear();
         drawSnake(window, snake);
+        drawFruit(window, fruit);
         window.display();
     }
 
@@ -201,6 +224,24 @@ void drawSnake(sf::RenderWindow &window, Snake &snake) {
     tailRectangle.setFillColor(SNAKE_TAIL_COLOR);
     tailRectangle.move(snake.getBody(snake.getSize()-1).x*UNIT_WIDTH, snake.getBody(snake.getSize()-1).y*UNIT_HEIGHT);
     window.draw(tailRectangle);
+}
+
+void drawFruit(sf::RenderWindow &window, Point &fruit) {
+    sf::RectangleShape fruitRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
+    fruitRectangle.move(fruit.x*UNIT_WIDTH, fruit.y*UNIT_HEIGHT);
+    fruitRectangle.setFillColor(FRUIT_COLOR);
+    window.draw(fruitRectangle);
+}
+
+Point getRandomFruit() {
+    Point fruit;
+    int mapSizeX = MAP_WIDTH/UNIT_WIDTH;
+    int mapSizeY = MAP_HEIGHT/UNIT_HEIGHT;
+    // do {
+        fruit = Point(std::rand()%(mapSizeX-1), std::rand()%(mapSizeY-1));
+    // } while(!snake.isPointOnBody(fruit));
+
+    return fruit;
 }
 
 // sf::Vector2u getMapSize() {

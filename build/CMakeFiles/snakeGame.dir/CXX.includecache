@@ -693,13 +693,17 @@ SFML/Config.hpp
 /home/kde/Desktop/SFML-2.5.1-src/include/SFML/Window/WindowStyle.hpp
 
 /home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp
-SFML/Window.hpp
--
-SFML/Graphics.hpp
--
 iostream
 -
 cmath
+-
+cstdlib
+-
+ctime
+-
+SFML/Window.hpp
+-
+SFML/Graphics.hpp
 -
 snakeGame.hpp
 /home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.hpp

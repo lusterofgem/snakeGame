@@ -29,9 +29,13 @@ void Snake::moveTo(int x, int y) {
 }
 
 // eat and grow up
-void Snake::eat(int x, int y) {
+void Snake::eat(const Point &point) {
     body.push_back(Point());
-    moveTo(x, y);
+    moveTo(point);
+}
+
+void Snake::eat(int x, int y) {
+    eat(Point(x,y));
 }
 
 size_t Snake::getSize() {
