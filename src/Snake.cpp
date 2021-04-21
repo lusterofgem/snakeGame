@@ -43,7 +43,7 @@ void Snake::reset() {
     body.clear();
 }
 
-Point Snake::getBodyPoint(unsigned int index) {
+Point Snake::getBody(unsigned int index) {
     return body[index];
 }
 
@@ -52,28 +52,35 @@ void Snake::turnFace(Direction direction) {
     if(body.size() > 1) {
         switch(direction) {
             case Direction::NORTH: {
-                if(body[1].y == body[0].y-1) {
-                    return;
+                if(body[1].y != body[0].y-1) {
+                    // std::cout << "turnFace(Direction::NORTH) successed" << std::endl;
+                    faceDirection = direction;
                 }
-            }
-            case Direction::EAST: {
-                if(body[1].x == body[0].x-1) {
-                    return;
-                }
-            }
-            case Direction::SOUTH: {
-                if(body[1].y == body[0].y+1) {
-                    return;
-                }
+                break;
             }
             case Direction::WEST: {
-                if(body[1].x == body[0].x+1) {
-                    return;
+                if(body[1].x != body[0].x-1) {
+                    // std::cout << "turnFace(Direction::WEST) successed" << std::endl;
+                    faceDirection = direction;
                 }
+                break;
+            }
+            case Direction::SOUTH: {
+                if(body[1].y != body[0].y+1) {
+                    // std::cout << "turnFace(Direction::SOUTH) successed" << std::endl;
+                    faceDirection = direction;
+                }
+                break;
+            }
+            case Direction::EAST: {
+                if(body[1].x != body[0].x+1) {
+                    // std::cout << "turnFace(Direction::EAST) successed" << std::endl;
+                    faceDirection = direction;
+                }
+                break;
             }
         }
     }
-    faceDirection = direction;
 }
 
 Direction Snake::getFaceDirection() {
@@ -86,7 +93,7 @@ Point Snake::getHead() {
     return body[0];
 }
 
-bool Snake::isPointOnSnake(Point &point) {
+bool Snake::isPointOnBody(Point &point) {
     for(auto it=body.begin(); it!=body.end(); it++) {
         if(point == *it) {
             return true;
@@ -95,23 +102,48 @@ bool Snake::isPointOnSnake(Point &point) {
     return false;
 }
 
+// if no direction is set, return Point(-1, -1)
+Point Snake::getLookedPoint() {
+    switch(faceDirection) {
+        case Direction::NORTH: {
+            return Point(getHead().x, getHead().y-1);
+            break;
+        }
+        case Direction::WEST: {
+            return Point(getHead().x-1, getHead().y);
+            break;
+        }
+        case Direction::SOUTH: {
+            return Point(getHead().x, getHead().y+1);
+            break;
+        }
+        case Direction::EAST: {
+            return Point(getHead().x+1, getHead().y);
+            break;
+        }
+        default: {
+            return Point(-1, -1);
+        }
+    }
+}
+
 // debug
 void Snake::printFaceDirection() {
     switch(faceDirection) {
         case Direction::NORTH: {
-            std::cout << "snake face direction: NORTH" << std::endl;
+            // std::cout << "snake face direction: NORTH" << std::endl;
             break;
         }
         case Direction::EAST: {
-            std::cout << "snake face direction: EAST" << std::endl;
+            // std::cout << "snake face direction: EAST" << std::endl;
             break;
         }
         case Direction::SOUTH: {
-            std::cout << "snake face direction: SOUTH" << std::endl;
+            // std::cout << "snake face direction: SOUTH" << std::endl;
             break;
         }
         case Direction::WEST: {
-            std::cout << "snake face direction: WAST" << std::endl;
+            // std::cout << "snake face direction: WEST" << std::endl;
             break;
         }
     }

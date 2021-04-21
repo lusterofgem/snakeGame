@@ -19,11 +19,12 @@ public:
     void eat(int x, int y);
     size_t getSize();
     void reset();
-    Point getBodyPoint(unsigned int index);
+    Point getBody(unsigned int index);
     void turnFace(Direction direction);
     Direction getFaceDirection();
     Point getHead();
-    bool isPointOnSnake(Point &point);
+    bool isPointOnBody(Point &point);
+    Point getLookedPoint();
 
     // debug
     void printFaceDirection();

@@ -699,6 +699,8 @@ SFML/Graphics.hpp
 -
 iostream
 -
+cmath
+-
 snakeGame.hpp
 /home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.hpp
 Snake.hpp
