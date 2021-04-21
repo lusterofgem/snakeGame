@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "snakeGame.hpp"
 #include "Snake.hpp"
+#include "Fruit.hpp"
 
 // Game setting
 const unsigned int MAP_WIDTH = 800;
@@ -19,7 +20,7 @@ const sf::Color &SNAKE_HEAD_COLOR = sf::Color(250,250,250);
 const sf::Color &SNAKE_TAIL_COLOR = sf::Color(150,150,150);
 const sf::Color &SNAKE_LEFT_EYE_COLOR = sf::Color(255,255,0);
 const sf::Color &SNAKE_RIGHT_EYE_COLOR = sf::Color(255,255,0);
-const sf::Color &FRUIT_COLOR = sf::Color(255, 0, 0);
+const sf::Color &FRUIT_COLOR = sf::Color(255,0,0);
 
 int main() {
     // set seed
@@ -34,7 +35,15 @@ int main() {
     // Point snakeStartPoint();
     // Game objects
     Snake snake({Point(5,5), Point(5,6), Point(5,7), Point(5,8), Point(5,9), Point(5,10)});
-    Point fruit = getRandomFruit();
+    snake.setHeadColor(SNAKE_HEAD_COLOR);
+    snake.setTailColor(SNAKE_TAIL_COLOR);
+    snake.setLeftEyeColor(SNAKE_LEFT_EYE_COLOR);
+    snake.setRightEyeColor(SNAKE_RIGHT_EYE_COLOR);
+    Fruit fruit;
+    do {
+        // fruit = Fruit(getRandomFruitPoint());
+        fruit.setPoint(getRandomFruitPoint());
+    } while(snake.isPointOnBody(fruit.getPoint()));
 
     // Game timer
     sf::Clock clock;
@@ -48,12 +57,12 @@ int main() {
             // std::cout << "Tick" << std::endl; //
             Point targetPoint = snake.getLookedPoint();
             if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
-                if(targetPoint == fruit) {
+                if(targetPoint == fruit.getPoint()) {
                     std::cout << "true\n";
                     snake.eat(targetPoint);
                     do {
-                        fruit = getRandomFruit();
-                    } while(snake.isPointOnBody(fruit));
+                        fruit = Fruit(getRandomFruitPoint());
+                    } while(snake.isPointOnBody(fruit.getPoint()));
                 }
                 else {
                     std::cout << "false\n";
@@ -226,22 +235,22 @@ void drawSnake(sf::RenderWindow &window, Snake &snake) {
     window.draw(tailRectangle);
 }
 
-void drawFruit(sf::RenderWindow &window, Point &fruit) {
+void drawFruit(sf::RenderWindow &window, Fruit &fruit) {
     sf::RectangleShape fruitRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
-    fruitRectangle.move(fruit.x*UNIT_WIDTH, fruit.y*UNIT_HEIGHT);
+    fruitRectangle.move(fruit.getPoint().x*UNIT_WIDTH, fruit.getPoint().y*UNIT_HEIGHT);
     fruitRectangle.setFillColor(FRUIT_COLOR);
     window.draw(fruitRectangle);
 }
 
-Point getRandomFruit() {
-    Point fruit;
+Point getRandomFruitPoint() {
+    Point fruitPoint;
     int mapSizeX = MAP_WIDTH/UNIT_WIDTH;
     int mapSizeY = MAP_HEIGHT/UNIT_HEIGHT;
     // do {
-        fruit = Point(std::rand()%(mapSizeX-1), std::rand()%(mapSizeY-1));
+    fruitPoint = Point(std::rand()%(mapSizeX-1), std::rand()%(mapSizeY-1));
     // } while(!snake.isPointOnBody(fruit));
 
-    return fruit;
+    return fruitPoint;
 }
 
 // sf::Vector2u getMapSize() {
@@ -249,7 +258,7 @@ Point getRandomFruit() {
 // }
 
 // check if the given point is in map boundary
-bool isPointInMap(const Point &point) {
+bool isPointInMap(const Point point) {
     const unsigned int MAP_SIZE_X = MAP_WIDTH/UNIT_WIDTH;
     const unsigned int MAP_SIZE_Y = MAP_HEIGHT/UNIT_HEIGHT;
 
@@ -258,41 +267,5 @@ bool isPointInMap(const Point &point) {
     }
     else {
         return false;
-    }
-}
-
-void goNorth(Snake &snake) {
-    if(snake.getSize()<1) return;
-
-    Point targetPoint(snake.getHead().x, snake.getHead().y-1);
-    if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
-        snake.moveTo(targetPoint);
-    }
-}
-
-void goEast(Snake &snake) {
-    if(snake.getSize()<1) return;
-
-    Point targetPoint(snake.getHead().x-1, snake.getHead().y);
-    if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
-        snake.moveTo(targetPoint);
-    }
-}
-
-void goSouth(Snake &snake) {
-    if(snake.getSize()<1) return;
-
-    Point targetPoint(snake.getHead().x, snake.getHead().y+1);
-    if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
-        snake.moveTo(targetPoint);
-    }
-}
-
-void goWest(Snake &snake) {
-    if(snake.getSize()<1) return;
-
-    Point targetPoint(snake.getHead().x+1, snake.getHead().y);
-    if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
-        snake.moveTo(targetPoint);
     }
 }

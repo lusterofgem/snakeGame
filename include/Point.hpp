@@ -9,7 +9,7 @@ struct Point {
     void addX(int x);
     void addY(int y);
     void addXY(int x, int y);
-    bool operator==(Point &point);
+    bool operator==(Point point);
 };
 
 #endif

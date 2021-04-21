@@ -16,7 +16,7 @@ Snake::Snake(std::initializer_list<Point> points) {
     }
 }
 
-void Snake::moveTo(const Point &point) {
+void Snake::moveTo(const Point point) {
     if(body.size()<1) return;
     for(auto it=body.end()-1; it!=body.begin(); it--) {
         *it = *(it-1);
@@ -29,7 +29,7 @@ void Snake::moveTo(int x, int y) {
 }
 
 // eat and grow up
-void Snake::eat(const Point &point) {
+void Snake::eat(const Point point) {
     body.push_back(Point());
     moveTo(point);
 }
@@ -97,7 +97,7 @@ Point Snake::getHead() {
     return body[0];
 }
 
-bool Snake::isPointOnBody(Point &point) {
+bool Snake::isPointOnBody(Point point) {
     for(auto it=body.begin(); it!=body.end(); it++) {
         if(point == *it) {
             return true;
@@ -131,24 +131,34 @@ Point Snake::getLookedPoint() {
     }
 }
 
-// debug
-void Snake::printFaceDirection() {
-    switch(faceDirection) {
-        case Direction::NORTH: {
-            // std::cout << "snake face direction: NORTH" << std::endl;
-            break;
-        }
-        case Direction::EAST: {
-            // std::cout << "snake face direction: EAST" << std::endl;
-            break;
-        }
-        case Direction::SOUTH: {
-            // std::cout << "snake face direction: SOUTH" << std::endl;
-            break;
-        }
-        case Direction::WEST: {
-            // std::cout << "snake face direction: WEST" << std::endl;
-            break;
-        }
-    }
+void Snake::setHeadColor(sf::Color headColor) {
+    this->headColor = headColor;
+}
+
+sf::Color Snake::getHeadColor() {
+    return headColor;
+}
+
+void Snake::setLeftEyeColor(sf::Color leftEyeColor) {
+    this->leftEyeColor = leftEyeColor;
+}
+
+sf::Color Snake::getLeftEyeColor() {
+    return leftEyeColor;
+}
+
+void Snake::setRightEyeColor(sf::Color rightEyeColor) {
+    this->rightEyeColor = rightEyeColor;
+}
+
+sf::Color Snake::getRightEyeColor() {
+    return rightEyeColor;
+}
+
+void Snake::setTailColor(sf::Color tailColor) {
+    this->tailColor = tailColor;
+}
+
+sf::Color Snake::getTailColor() {
+    return tailColor;
 }

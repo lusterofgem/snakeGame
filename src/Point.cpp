@@ -23,7 +23,7 @@ void Point::addXY(int x, int y) {
     this->y += y;
 }
 
-bool Point::operator==(Point &point) {
+bool Point::operator==(Point point) {
     if(x==point.x && y==point.y) {
         return true;
     }

@@ -15,6 +15,7 @@ find_package(SFML 2.5 COMPONENTS
 add_executable(snakeGame
                src/snakeGame
                src/Snake
+               src/Fruit
                src/Point)
 
 # include
