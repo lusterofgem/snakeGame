@@ -16,7 +16,8 @@ add_executable(snakeGame
                src/snakeGame
                src/Snake
                src/Fruit
-               src/Point)
+               src/Point
+               src/Game)
 
 # include
 target_include_directories(snakeGame

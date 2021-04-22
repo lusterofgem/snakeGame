@@ -150,6 +150,33 @@ src/Fruit.cpp.s:
 	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Fruit.cpp.s
 .PHONY : src/Fruit.cpp.s
 
+src/Game.o: src/Game.cpp.o
+
+.PHONY : src/Game.o
+
+# target to build an object file
+src/Game.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Game.cpp.o
+.PHONY : src/Game.cpp.o
+
+src/Game.i: src/Game.cpp.i
+
+.PHONY : src/Game.i
+
+# target to preprocess a source file
+src/Game.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
+
+src/Game.s: src/Game.cpp.s
+
+.PHONY : src/Game.s
+
+# target to generate assembly for a file
+src/Game.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
+
 src/Point.o: src/Point.cpp.o
 
 .PHONY : src/Point.o
@@ -243,6 +270,9 @@ help:
 	@echo "... src/Fruit.o"
 	@echo "... src/Fruit.i"
 	@echo "... src/Fruit.s"
+	@echo "... src/Game.o"
+	@echo "... src/Game.i"
+	@echo "... src/Game.s"
 	@echo "... src/Point.o"
 	@echo "... src/Point.i"
 	@echo "... src/Point.s"

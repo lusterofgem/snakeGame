@@ -14,6 +14,16 @@ SFML/Graphics.hpp
 Point.hpp
 ../include/Point.hpp
 
+../include/Game.hpp
+iostream
+-
+thread
+-
+Snake.hpp
+../include/Snake.hpp
+Fruit.hpp
+../include/Fruit.hpp
+
 ../include/Point.hpp
 
 ../include/Snake.hpp
@@ -702,14 +712,6 @@ SFML/Config.hpp
 
 /home/kde/Desktop/SFML-2.5.1-src/include/SFML/Window/WindowStyle.hpp
 
-/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.cpp
-Snake.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.hpp
-Point.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/Point.hpp
-iostream
--
-
 /home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp
 iostream
 -
@@ -729,4 +731,6 @@ Snake.hpp
 /home/kde/Desktop/lab/sfml/snakeGame/src/Snake.hpp
 Fruit.hpp
 /home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.hpp
+Game.hpp
+/home/kde/Desktop/lab/sfml/snakeGame/src/Game.hpp
 

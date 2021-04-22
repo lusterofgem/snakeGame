@@ -7,17 +7,18 @@
 #include "snakeGame.hpp"
 #include "Snake.hpp"
 #include "Fruit.hpp"
+#include "Game.hpp"
 
 // Game setting
-const unsigned int MAP_WIDTH = 800;
+const unsigned int &MAP_WIDTH = 800;
 const unsigned int MAP_HEIGHT = 600;
 const float UNIT_WIDTH = 25.f;
 const float UNIT_HEIGHT = 25.f;
 const unsigned int TIMER_MILLISECOND = 100;
 
 // Color
-const sf::Color &SNAKE_HEAD_COLOR = sf::Color(250,250,250);
-const sf::Color &SNAKE_TAIL_COLOR = sf::Color(150,150,150);
+const sf::Color &SNAKE_HEAD_COLOR = sf::Color(255,255,255);
+const sf::Color &SNAKE_TAIL_COLOR = sf::Color(255,100,100);
 const sf::Color &SNAKE_LEFT_EYE_COLOR = sf::Color(255,255,0);
 const sf::Color &SNAKE_RIGHT_EYE_COLOR = sf::Color(255,255,0);
 const sf::Color &FRUIT_COLOR = sf::Color(255,0,0);
@@ -27,7 +28,7 @@ int main() {
     std::srand(std::time(nullptr));
 
     // main window
-    sf::RenderWindow window(sf::VideoMode(MAP_WIDTH,MAP_HEIGHT), "Main Window");
+    sf::RenderWindow window(sf::VideoMode(MAP_WIDTH,MAP_HEIGHT), "Snake");
 
     // vertical synchronization
     window.setVerticalSyncEnabled(true);
@@ -40,8 +41,8 @@ int main() {
     snake.setLeftEyeColor(SNAKE_LEFT_EYE_COLOR);
     snake.setRightEyeColor(SNAKE_RIGHT_EYE_COLOR);
     Fruit fruit;
+    fruit.setColor(FRUIT_COLOR);
     do {
-        // fruit = Fruit(getRandomFruitPoint());
         fruit.setPoint(getRandomFruitPoint());
     } while(snake.isPointOnBody(fruit.getPoint()));
 
@@ -58,23 +59,22 @@ int main() {
             Point targetPoint = snake.getLookedPoint();
             if(isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
                 if(targetPoint == fruit.getPoint()) {
-                    std::cout << "true\n";
                     snake.eat(targetPoint);
                     do {
                         fruit = Fruit(getRandomFruitPoint());
                     } while(snake.isPointOnBody(fruit.getPoint()));
                 }
                 else {
-                    std::cout << "false\n";
                     snake.moveTo(targetPoint);
                 }
                 // std::cout << targetPoint.x << " " << targetPoint.y << std::endl;
             }
             else {
-                // Dead
+                std::cout << "Dead" << std::endl;
             }
             clock.restart();
         }
+
         // get events and run each event
         while(window.pollEvent(event)) {
             // close window event
@@ -217,9 +217,9 @@ void drawSnake(sf::RenderWindow &window, Snake &snake) {
     // draw snake body (with gradual color)
     for(int i=1; i<snake.getSize()-1; i++) {
         sf::RectangleShape bodyRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
-        float rDistance = (SNAKE_HEAD_COLOR.r-SNAKE_TAIL_COLOR.r)/(snake.getSize()-1); //HERE deviation
-        float gDistance = (SNAKE_HEAD_COLOR.g-SNAKE_TAIL_COLOR.g)/(snake.getSize()-1);
-        float bDistance = (SNAKE_HEAD_COLOR.b-SNAKE_TAIL_COLOR.b)/(snake.getSize()-1);
+        float rDistance = (SNAKE_HEAD_COLOR.r-SNAKE_TAIL_COLOR.r)/static_cast<float>(snake.getSize()-1); // HERE
+        float gDistance = (SNAKE_HEAD_COLOR.g-SNAKE_TAIL_COLOR.g)/static_cast<float>(snake.getSize()-1);
+        float bDistance = (SNAKE_HEAD_COLOR.b-SNAKE_TAIL_COLOR.b)/static_cast<float>(snake.getSize()-1);
 
         bodyRectangle.setFillColor(sf::Color( SNAKE_HEAD_COLOR.r - rDistance*i
                                             , SNAKE_HEAD_COLOR.g - gDistance*i
@@ -238,7 +238,7 @@ void drawSnake(sf::RenderWindow &window, Snake &snake) {
 void drawFruit(sf::RenderWindow &window, Fruit &fruit) {
     sf::RectangleShape fruitRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
     fruitRectangle.move(fruit.getPoint().x*UNIT_WIDTH, fruit.getPoint().y*UNIT_HEIGHT);
-    fruitRectangle.setFillColor(FRUIT_COLOR);
+    fruitRectangle.setFillColor(fruit.getColor());
     window.draw(fruitRectangle);
 }
 
