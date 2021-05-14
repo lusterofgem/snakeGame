@@ -60,14 +60,6 @@ GameHandler.hpp
 EventHandler.hpp
 ../include/EventHandler.hpp
 
-/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.cpp
-EventHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.hpp
-
-/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.cpp
-ViewHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.hpp
-
 /home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp
 SFML/Window.hpp
 -

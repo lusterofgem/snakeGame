@@ -8,7 +8,7 @@ ViewHandler::ViewHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandlerPt
 }
 
 // Start view handler thread
-void ViewHandler::start() {
+void ViewHandler::join() {
     viewHandlerThread.join();
 }
 

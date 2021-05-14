@@ -21,7 +21,7 @@ GameHandler::GameHandler(sf::RenderWindow *windowPtr)
     generateFruit();
 }
 
-void GameHandler::start() {
+void GameHandler::join() {
     gameHandlerThread.join();
 }
 

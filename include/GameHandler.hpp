@@ -38,8 +38,7 @@ public:
     Map& getMap();
     Snake& getSnake();
     Fruit& getFruit();
-    void start();
-    void stop();
+    void join();
 
 private:
     void run();

@@ -12,7 +12,7 @@ class EventHandler {
 
 public:
     EventHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandlerPtr);
-    void start();
+    void join();
 
 private:
     void run();

@@ -6,8 +6,8 @@ EventHandler::EventHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandler
 
 }
 
-void EventHandler::start() {
-    // eventHandlerThread.join();
+void EventHandler::join() {
+    eventHandlerThread.join();
 }
 
 void EventHandler::run() {
