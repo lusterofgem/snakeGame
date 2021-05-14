@@ -21,57 +21,44 @@ void EventHandler::run() {
         else if(event.type == sf::Event::KeyPressed) {
             switch(event.key.code) {
                 case sf::Keyboard::Key::W: {
-                    std::cout << "W" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::NORTH);
-
                     break;
                 }
                 case sf::Keyboard::Key::A: {
-                    std::cout << "A" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::WEST);
                     break;
                 }
                 case sf::Keyboard::Key::S: {
-                    std::cout << "S" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::SOUTH);
                     break;
                 }
                 case sf::Keyboard::Key::D: {
-                    std::cout << "D" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::EAST);
                     break;
                 }
                 case sf::Keyboard::Key::Space: {
-                    std::cout << "Space" << std::endl;
-
+                    gameHandlerPtr->tryToPause();
                     break;
                 }
                 case sf::Keyboard::Key::Up: {
-                    std::cout << "Up" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::NORTH);
                     break;
                 }
                 case sf::Keyboard::Key::Down: {
-                    std::cout << "Down" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::SOUTH);
                     break;
                 }
                 case sf::Keyboard::Key::Left: {
-                    std::cout << "Left" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::WEST);
                     break;
                 }
                 case sf::Keyboard::Key::Right: {
-                    std::cout << "Right" << std::endl;
                     gameHandlerPtr->getSnake().turnFace(Direction::EAST);
                     break;
                 }
                 case sf::Keyboard::Key::Enter: {
-                    std::cout << "Enter" << std::endl;
+                    gameHandlerPtr->tryToPause();
                     break;
-                }
-                case sf::Keyboard::Key::Escape: {
-                    std::cout << "Escape" << std::endl;
                 }
             }
         }

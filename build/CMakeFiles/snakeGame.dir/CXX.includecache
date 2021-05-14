@@ -21,8 +21,6 @@ Point.hpp
 ../include/Point.hpp
 
 ../include/GameHandler.hpp
-iostream
--
 thread
 -
 Map.hpp

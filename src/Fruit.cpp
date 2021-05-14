@@ -13,12 +13,12 @@ void Fruit::setColor(sf::Color color) {
     this->color = color;
 }
 
-sf::Color Fruit::getColor() {
-    return color;
-}
-
 void Fruit::setPoint(Point point) {
     this->point = point;
+}
+
+sf::Color Fruit::getColor() {
+    return color;
 }
 
 Point Fruit::getPoint() {

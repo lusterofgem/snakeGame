@@ -8,9 +8,8 @@
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
     GameHandler gameHandler(&window);
-    ViewHandler viewHandler(&window, &gameHandler);
     EventHandler eventHandler(&window, &gameHandler);
-
+    ViewHandler viewHandler(&window, &gameHandler);
     gameHandler.join();
 
     return 0;

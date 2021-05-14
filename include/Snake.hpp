@@ -10,10 +10,11 @@ class Snake {
     //HERE
     std::vector<Point> body;
     Direction faceDirection = Direction::NORTH;
-    sf::Color headColor = sf::Color(255,255,255);
+    sf::Color headColor = sf::Color(255,100,100);
     sf::Color leftEyeColor = sf::Color(255,255,0);
     sf::Color rightEyeColor = sf::Color(255,255,0);
-    sf::Color tailColor = sf::Color(150,150,150);
+    sf::Color tailColor = sf::Color(100,100,100);
+    sf::Color deadColor = sf::Color(80,80,80);
 
 public:
     Snake();
@@ -24,6 +25,7 @@ public:
     void setLeftEyeColor(const sf::Color leftEyeColor);
     void setRightEyeColor(const sf::Color rightEyeColor);
     void setTailColor(const sf::Color tailColor);
+    void setDeadColor(const sf::Color deadColor);
     Point getBody(unsigned int index);
     Direction getFaceDirection();
     Point getHead();
@@ -32,6 +34,7 @@ public:
     sf::Color getLeftEyeColor();
     sf::Color getRightEyeColor();
     sf::Color getTailColor();
+    sf::Color getDeadColor();
     void moveTo(const Point point);
     void moveTo(int x, int y);
     void eat(const Point point);

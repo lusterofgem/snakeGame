@@ -16,20 +16,24 @@ Snake::Snake(std::initializer_list<Point> points)
 
 }
 
-void Snake::setHeadColor(sf::Color headColor) {
+void Snake::setHeadColor(const sf::Color headColor) {
     this->headColor = headColor;
 }
 
-void Snake::setLeftEyeColor(sf::Color leftEyeColor) {
+void Snake::setLeftEyeColor(const sf::Color leftEyeColor) {
     this->leftEyeColor = leftEyeColor;
 }
 
-void Snake::setRightEyeColor(sf::Color rightEyeColor) {
+void Snake::setRightEyeColor(const sf::Color rightEyeColor) {
     this->rightEyeColor = rightEyeColor;
 }
 
-void Snake::setTailColor(sf::Color tailColor) {
+void Snake::setTailColor(const sf::Color tailColor) {
     this->tailColor = tailColor;
+}
+
+void Snake::setDeadColor(const sf::Color deadColor) {
+    this->deadColor = deadColor;
 }
 
 Point Snake::getBody(unsigned int index) {
@@ -45,8 +49,6 @@ Point Snake::getHead() {
     if(body.size()<1) return Point(-1,-1);
     return body[0];
 }
-
-
 
 // if no direction is set, return Point(-1, -1)
 Point Snake::getLookedPoint() {
@@ -87,6 +89,10 @@ sf::Color Snake::getRightEyeColor() {
 
 sf::Color Snake::getTailColor() {
     return tailColor;
+}
+
+sf::Color Snake::getDeadColor() {
+    return deadColor;
 }
 
 void Snake::moveTo(const Point point) {

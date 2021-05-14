@@ -6,15 +6,15 @@
 
 class Fruit {
     Point point;
-    sf::Color color = sf::Color(255,0,0); // Ask
+    sf::Color color = sf::Color(255,0,0);
 
 public:
     Fruit();
     Fruit(Point point);
 
     void setColor(sf::Color color);
-    sf::Color getColor();
     void setPoint(Point point);
+    sf::Color getColor();
     Point getPoint();
 };
 
