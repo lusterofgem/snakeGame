@@ -70,6 +70,10 @@ void GameHandler::generateFruit() {
     fruit.setPoint(fruitPoint);
 }
 
+void GameHandler::setMap(Map map) {
+    this->map = map;
+}
+
 // Set the snake to current game handler
 void GameHandler::setSnake(Snake snake) {
     this->snake = snake;

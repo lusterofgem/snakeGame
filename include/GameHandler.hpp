@@ -32,9 +32,9 @@ class GameHandler {
 
 public:
     GameHandler(sf::RenderWindow *windowPtr);
+    void setMap(Map map);
     void setSnake(Snake snake);
     void setFruit(Fruit fruit);
-    void setMap(Map map);
     Map& getMap();
     Snake& getSnake();
     Fruit& getFruit();
