@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o"
   "CMakeFiles/snakeGame.dir/src/Fruit.cpp.o"
-  "CMakeFiles/snakeGame.dir/src/Game.cpp.o"
+  "CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o"
+  "CMakeFiles/snakeGame.dir/src/Map.cpp.o"
   "CMakeFiles/snakeGame.dir/src/Point.cpp.o"
   "CMakeFiles/snakeGame.dir/src/Snake.cpp.o"
+  "CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.o"
   "CMakeFiles/snakeGame.dir/src/snakeGame.cpp.o"
   "snakeGame"
   "snakeGame.pdb"

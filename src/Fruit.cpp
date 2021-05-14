@@ -1,11 +1,12 @@
 #include "Fruit.hpp"
 
-Fruit::Fruit() {
+Fruit::Fruit()
+:point() {
 
 }
 
-Fruit::Fruit(Point point) {
-    this->point = point;
+Fruit::Fruit(Point point)
+:point(point) {
 }
 
 void Fruit::setColor(sf::Color color) {

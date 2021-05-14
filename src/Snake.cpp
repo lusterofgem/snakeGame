@@ -1,19 +1,92 @@
 #include "Snake.hpp"
-#include "Point.hpp"
-#include <iostream>
 
-Snake::Snake() {
+Snake::Snake()
+:body() {
 
 }
 
-Snake::Snake(std::vector<Point> body) {
-    this->body = body;
+Snake::Snake(std::vector<Point> body)
+:body(body) {
+
 }
 
-Snake::Snake(std::initializer_list<Point> points) {
-    for(auto it=points.begin(); it!=points.end(); it++) {
-        body.push_back(*it);
+//
+Snake::Snake(std::initializer_list<Point> points)
+:body(points) {
+
+}
+
+void Snake::setHeadColor(sf::Color headColor) {
+    this->headColor = headColor;
+}
+
+void Snake::setLeftEyeColor(sf::Color leftEyeColor) {
+    this->leftEyeColor = leftEyeColor;
+}
+
+void Snake::setRightEyeColor(sf::Color rightEyeColor) {
+    this->rightEyeColor = rightEyeColor;
+}
+
+void Snake::setTailColor(sf::Color tailColor) {
+    this->tailColor = tailColor;
+}
+
+Point Snake::getBody(unsigned int index) {
+    return body[index];
+}
+
+Direction Snake::getFaceDirection() {
+    return faceDirection;
+}
+
+// return head point, if the size < 1 (no head) return a Point(-1, -1)
+Point Snake::getHead() {
+    if(body.size()<1) return Point(-1,-1);
+    return body[0];
+}
+
+
+
+// if no direction is set, return Point(-1, -1)
+Point Snake::getLookedPoint() {
+    switch(faceDirection) {
+        case Direction::NORTH: {
+            return Point(getHead().x, getHead().y-1);
+            break;
+        }
+        case Direction::WEST: {
+            return Point(getHead().x-1, getHead().y);
+            break;
+        }
+        case Direction::SOUTH: {
+            return Point(getHead().x, getHead().y+1);
+            break;
+        }
+        case Direction::EAST: {
+            return Point(getHead().x+1, getHead().y);
+            break;
+        }
+        default: {
+            return Point(-1, -1);
+        }
     }
+}
+
+sf::Color Snake::getHeadColor() {
+    return headColor;
+}
+
+sf::Color Snake::getLeftEyeColor() {
+    return leftEyeColor;
+}
+
+sf::Color Snake::getRightEyeColor() {
+    return rightEyeColor;
+}
+
+sf::Color Snake::getTailColor() {
+    return tailColor;
 }
 
 void Snake::moveTo(const Point point) {
@@ -40,15 +113,6 @@ void Snake::eat(int x, int y) {
 
 size_t Snake::getSize() {
     return body.size();
-}
-
-// empty snake body
-void Snake::reset() {
-    body.clear();
-}
-
-Point Snake::getBody(unsigned int index) {
-    return body[index];
 }
 
 // try to turn face to given direction
@@ -87,16 +151,6 @@ void Snake::turnFace(Direction direction) {
     }
 }
 
-Direction Snake::getFaceDirection() {
-    return faceDirection;
-}
-
-// return head point, if the size < 1 (no head) return a Point(-1, -1)
-Point Snake::getHead() {
-    if(body.size()<1) return Point(-1,-1);
-    return body[0];
-}
-
 bool Snake::isPointOnBody(Point point) {
     for(auto it=body.begin(); it!=body.end(); it++) {
         if(point == *it) {
@@ -106,59 +160,7 @@ bool Snake::isPointOnBody(Point point) {
     return false;
 }
 
-// if no direction is set, return Point(-1, -1)
-Point Snake::getLookedPoint() {
-    switch(faceDirection) {
-        case Direction::NORTH: {
-            return Point(getHead().x, getHead().y-1);
-            break;
-        }
-        case Direction::WEST: {
-            return Point(getHead().x-1, getHead().y);
-            break;
-        }
-        case Direction::SOUTH: {
-            return Point(getHead().x, getHead().y+1);
-            break;
-        }
-        case Direction::EAST: {
-            return Point(getHead().x+1, getHead().y);
-            break;
-        }
-        default: {
-            return Point(-1, -1);
-        }
-    }
-}
-
-void Snake::setHeadColor(sf::Color headColor) {
-    this->headColor = headColor;
-}
-
-sf::Color Snake::getHeadColor() {
-    return headColor;
-}
-
-void Snake::setLeftEyeColor(sf::Color leftEyeColor) {
-    this->leftEyeColor = leftEyeColor;
-}
-
-sf::Color Snake::getLeftEyeColor() {
-    return leftEyeColor;
-}
-
-void Snake::setRightEyeColor(sf::Color rightEyeColor) {
-    this->rightEyeColor = rightEyeColor;
-}
-
-sf::Color Snake::getRightEyeColor() {
-    return rightEyeColor;
-}
-
-void Snake::setTailColor(sf::Color tailColor) {
-    this->tailColor = tailColor;
-}
-
-sf::Color Snake::getTailColor() {
-    return tailColor;
+// Empty the snake body
+void Snake::reset() {
+    body.clear();
 }

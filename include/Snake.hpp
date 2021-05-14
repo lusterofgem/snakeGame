@@ -7,6 +7,7 @@
 #include "Direction.hpp"
 
 class Snake {
+    //HERE
     std::vector<Point> body;
     Direction faceDirection = Direction::NORTH;
     sf::Color headColor = sf::Color(255,255,255);
@@ -19,26 +20,26 @@ public:
     Snake(std::vector<Point> body);
     Snake(std::initializer_list<Point> points);
 
+    void setHeadColor(const sf::Color headColor);
+    void setLeftEyeColor(const sf::Color leftEyeColor);
+    void setRightEyeColor(const sf::Color rightEyeColor);
+    void setTailColor(const sf::Color tailColor);
+    Point getBody(unsigned int index);
+    Direction getFaceDirection();
+    Point getHead();
+    Point getLookedPoint();
+    sf::Color getHeadColor();
+    sf::Color getLeftEyeColor();
+    sf::Color getRightEyeColor();
+    sf::Color getTailColor();
     void moveTo(const Point point);
     void moveTo(int x, int y);
     void eat(const Point point);
     void eat(int x, int y);
     size_t getSize();
-    void reset();
-    Point getBody(unsigned int index);
     void turnFace(Direction direction);
-    Direction getFaceDirection();
-    Point getHead();
     bool isPointOnBody(Point point);
-    Point getLookedPoint();
-    void setHeadColor(const sf::Color headColor);
-    sf::Color getHeadColor();
-    void setLeftEyeColor(const sf::Color leftEyeColor);
-    sf::Color getLeftEyeColor();
-    void setRightEyeColor(const sf::Color rightEyeColor);
-    sf::Color getRightEyeColor();
-    void setTailColor(const sf::Color tailColor);
-    sf::Color getTailColor();
+    void reset();
 };
 
 #endif

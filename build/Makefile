@@ -123,6 +123,33 @@ snakeGame/fast:
 	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/build
 .PHONY : snakeGame/fast
 
+src/EventHandler.o: src/EventHandler.cpp.o
+
+.PHONY : src/EventHandler.o
+
+# target to build an object file
+src/EventHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o
+.PHONY : src/EventHandler.cpp.o
+
+src/EventHandler.i: src/EventHandler.cpp.i
+
+.PHONY : src/EventHandler.i
+
+# target to preprocess a source file
+src/EventHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/EventHandler.cpp.i
+.PHONY : src/EventHandler.cpp.i
+
+src/EventHandler.s: src/EventHandler.cpp.s
+
+.PHONY : src/EventHandler.s
+
+# target to generate assembly for a file
+src/EventHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/EventHandler.cpp.s
+.PHONY : src/EventHandler.cpp.s
+
 src/Fruit.o: src/Fruit.cpp.o
 
 .PHONY : src/Fruit.o
@@ -150,32 +177,59 @@ src/Fruit.cpp.s:
 	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Fruit.cpp.s
 .PHONY : src/Fruit.cpp.s
 
-src/Game.o: src/Game.cpp.o
+src/GameHandler.o: src/GameHandler.cpp.o
 
-.PHONY : src/Game.o
+.PHONY : src/GameHandler.o
 
 # target to build an object file
-src/Game.cpp.o:
-	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Game.cpp.o
-.PHONY : src/Game.cpp.o
+src/GameHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o
+.PHONY : src/GameHandler.cpp.o
 
-src/Game.i: src/Game.cpp.i
+src/GameHandler.i: src/GameHandler.cpp.i
 
-.PHONY : src/Game.i
+.PHONY : src/GameHandler.i
 
 # target to preprocess a source file
-src/Game.cpp.i:
-	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Game.cpp.i
-.PHONY : src/Game.cpp.i
+src/GameHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/GameHandler.cpp.i
+.PHONY : src/GameHandler.cpp.i
 
-src/Game.s: src/Game.cpp.s
+src/GameHandler.s: src/GameHandler.cpp.s
 
-.PHONY : src/Game.s
+.PHONY : src/GameHandler.s
 
 # target to generate assembly for a file
-src/Game.cpp.s:
-	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Game.cpp.s
-.PHONY : src/Game.cpp.s
+src/GameHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/GameHandler.cpp.s
+.PHONY : src/GameHandler.cpp.s
+
+src/Map.o: src/Map.cpp.o
+
+.PHONY : src/Map.o
+
+# target to build an object file
+src/Map.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Map.cpp.o
+.PHONY : src/Map.cpp.o
+
+src/Map.i: src/Map.cpp.i
+
+.PHONY : src/Map.i
+
+# target to preprocess a source file
+src/Map.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Map.cpp.i
+.PHONY : src/Map.cpp.i
+
+src/Map.s: src/Map.cpp.s
+
+.PHONY : src/Map.s
+
+# target to generate assembly for a file
+src/Map.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Map.cpp.s
+.PHONY : src/Map.cpp.s
 
 src/Point.o: src/Point.cpp.o
 
@@ -231,6 +285,33 @@ src/Snake.cpp.s:
 	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/Snake.cpp.s
 .PHONY : src/Snake.cpp.s
 
+src/ViewHandler.o: src/ViewHandler.cpp.o
+
+.PHONY : src/ViewHandler.o
+
+# target to build an object file
+src/ViewHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.o
+.PHONY : src/ViewHandler.cpp.o
+
+src/ViewHandler.i: src/ViewHandler.cpp.i
+
+.PHONY : src/ViewHandler.i
+
+# target to preprocess a source file
+src/ViewHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.i
+.PHONY : src/ViewHandler.cpp.i
+
+src/ViewHandler.s: src/ViewHandler.cpp.s
+
+.PHONY : src/ViewHandler.s
+
+# target to generate assembly for a file
+src/ViewHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/snakeGame.dir/build.make CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.s
+.PHONY : src/ViewHandler.cpp.s
+
 src/snakeGame.o: src/snakeGame.cpp.o
 
 .PHONY : src/snakeGame.o
@@ -267,18 +348,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... snakeGame"
+	@echo "... src/EventHandler.o"
+	@echo "... src/EventHandler.i"
+	@echo "... src/EventHandler.s"
 	@echo "... src/Fruit.o"
 	@echo "... src/Fruit.i"
 	@echo "... src/Fruit.s"
-	@echo "... src/Game.o"
-	@echo "... src/Game.i"
-	@echo "... src/Game.s"
+	@echo "... src/GameHandler.o"
+	@echo "... src/GameHandler.i"
+	@echo "... src/GameHandler.s"
+	@echo "... src/Map.o"
+	@echo "... src/Map.i"
+	@echo "... src/Map.s"
 	@echo "... src/Point.o"
 	@echo "... src/Point.i"
 	@echo "... src/Point.s"
 	@echo "... src/Snake.o"
 	@echo "... src/Snake.i"
 	@echo "... src/Snake.s"
+	@echo "... src/ViewHandler.o"
+	@echo "... src/ViewHandler.i"
+	@echo "... src/ViewHandler.s"
 	@echo "... src/snakeGame.o"
 	@echo "... src/snakeGame.i"
 	@echo "... src/snakeGame.s"

@@ -4,10 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o"
   "/home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Fruit.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/Game.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Game.cpp.o"
+  "/home/kde/Desktop/lab/sfml/snakeGame/src/GameHandler.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o"
+  "/home/kde/Desktop/lab/sfml/snakeGame/src/Map.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Map.cpp.o"
   "/home/kde/Desktop/lab/sfml/snakeGame/src/Point.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Point.cpp.o"
   "/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Snake.cpp.o"
+  "/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.o"
   "/home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/snakeGame.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -20,7 +23,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "/home/kde/Desktop/SFML-2.5.1-src/include"
+  "/home/kde/lib/SFML-2.5.1/include"
   )
 
 # Targets to which this target links.
