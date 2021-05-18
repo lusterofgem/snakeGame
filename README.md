@@ -1,8 +1,13 @@
 # snakeGame
-Use SFML to make a **snake game**. 🐍<br>
-🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧<br>
+Use C++ with SFMLto make a **snake game**. 🐍<br>
 <br>
-Also use a web to share this game.<br>
+## Website
+Also use a web to post this game.<br>
 link: https://github.com/bryan9077/web<br>
-<!--https://github.com/lusterofgem/snakeGame/tree/master/other/diagram/snakeGameClassDiagram.png-->
-![image](other/diagram/snakeGameClassDiagram.png)
+<br>
+<br>
+<br>
+## Flow Chart<br>
+![image](other/diagram/snakeGameFlowChart.png)<br>
+## Class Diagram<br>
+![image](other/diagram/snakeGameClassDiagram.png)<br>
