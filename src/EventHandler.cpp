@@ -1,8 +1,8 @@
 #include "EventHandler.hpp"
 
-EventHandler::EventHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandlerPtr)
-:windowPtr(windowPtr)
-,gameHandlerPtr(gameHandlerPtr) {
+EventHandler::EventHandler(sf::RenderWindow &window, GameHandler &gameHandler)
+:windowPtr(&window)
+,gameHandlerPtr(&gameHandler) {
 
 }
 

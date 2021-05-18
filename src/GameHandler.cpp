@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
-GameHandler::GameHandler(sf::RenderWindow *windowPtr)
-:windowPtr(windowPtr)
+GameHandler::GameHandler(sf::RenderWindow &window)
+:windowPtr(&window)
 ,clock()
 ,map(32, 24)
 ,snake()
@@ -72,7 +72,7 @@ void GameHandler::reset() {
 
 void GameHandler::run() {
     // move snake
-    if(!gameOver && !paused && clock.getElapsedTime().asMilliseconds()>TIMER_MILLISECOND) {
+    if(!gameOver && !paused && clock.getElapsedTime().asMilliseconds()>timerMillisecond) {
         Point targetPoint = snake.getLookedPoint();
         if(map.isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
             if(targetPoint == fruit.getPoint()) {

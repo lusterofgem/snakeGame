@@ -11,7 +11,7 @@ class EventHandler {
     std::thread eventHandlerThread = std::thread(&EventHandler::runLoop, this);
 
 public:
-    EventHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandlerPtr);
+    EventHandler(sf::RenderWindow &window, GameHandler &gameHandler);
     void join();
 
 private:

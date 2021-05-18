@@ -17,10 +17,10 @@ class GameHandler {
     // std::thread gameHandlerThread(&GameHandler::runLoop, this);
     std::thread gameHandlerThread = std::thread(&GameHandler::runLoop, this);
 
-    const unsigned int TIMER_MILLISECOND = 100;
+    unsigned int timerMillisecond = 100;
 
 public:
-    GameHandler(sf::RenderWindow *windowPtr);
+    GameHandler(sf::RenderWindow &window);
     void setMap(Map map);
     void setSnake(Snake snake);
     void setFruit(Fruit fruit);

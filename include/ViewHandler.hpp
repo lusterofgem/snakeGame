@@ -13,7 +13,7 @@ class ViewHandler {
     std::thread viewHandlerThread = std::thread(&ViewHandler::runLoop, this);
 
 public:
-    ViewHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandlerPtr);
+    ViewHandler(sf::RenderWindow &window, GameHandler &gameHandler);
     void join();
 
 private:

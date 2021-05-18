@@ -1,9 +1,9 @@
 #include "ViewHandler.hpp"
 
 // Default Constructor
-ViewHandler::ViewHandler(sf::RenderWindow *windowPtr, GameHandler *gameHandlerPtr)
-:windowPtr(windowPtr)
-,gameHandlerPtr(gameHandlerPtr) {
+ViewHandler::ViewHandler(sf::RenderWindow &window, GameHandler &gameHandler)
+:windowPtr(&window)
+,gameHandlerPtr(&gameHandler) {
     windowPtr->setVerticalSyncEnabled(true);
 }
 
@@ -42,6 +42,94 @@ void ViewHandler::drawSnake(sf::RenderWindow &window, Snake &snake) {
             bodyRectangle.move(snake.getBody(i).x*UNIT_WIDTH, snake.getBody(i).y*UNIT_HEIGHT);
             window.draw(bodyRectangle);
         }
+    }
+    else if(gameHandlerPtr->isPaused()) {
+        // Draw paused snake head
+        sf::RectangleShape headRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
+        sf::Color headColor(snake.getHeadColor());
+        headColor.a = 255/2;
+        headRectangle.setFillColor(headColor);
+        headRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+        window.draw(headRectangle);
+
+        // Draw paused snake eye
+        switch(snake.getFaceDirection()) {
+            case Direction::NORTH: {
+                sf::RectangleShape leftEyeRectangle(sf::Vector2f(UNIT_WIDTH/5, UNIT_HEIGHT/5*2));
+                sf::RectangleShape rightEyeRectangle(sf::Vector2f(UNIT_WIDTH/5, UNIT_HEIGHT/5*2));
+                leftEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                rightEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                leftEyeRectangle.move(UNIT_WIDTH/5, UNIT_HEIGHT/5);
+                rightEyeRectangle.move(UNIT_WIDTH/5*3, UNIT_HEIGHT/5);
+                leftEyeRectangle.setFillColor(snake.getLeftEyeColor());
+                rightEyeRectangle.setFillColor(snake.getRightEyeColor());
+                window.draw(leftEyeRectangle);
+                window.draw(rightEyeRectangle);
+                break;
+            }
+            case Direction::WEST: {
+                sf::RectangleShape leftEyeRectangle(sf::Vector2f(UNIT_WIDTH/5*2, UNIT_HEIGHT/5));
+                sf::RectangleShape rightEyeRectangle(sf::Vector2f(UNIT_WIDTH/5*2, UNIT_HEIGHT/5));
+                leftEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                rightEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                leftEyeRectangle.move(UNIT_WIDTH/5, UNIT_HEIGHT/5*3);
+                rightEyeRectangle.move(UNIT_WIDTH/5, UNIT_HEIGHT/5);
+                leftEyeRectangle.setFillColor(snake.getLeftEyeColor());
+                rightEyeRectangle.setFillColor(snake.getRightEyeColor());
+                window.draw(leftEyeRectangle);
+                window.draw(rightEyeRectangle);
+                break;
+            }
+            case Direction::SOUTH: {
+                sf::RectangleShape leftEyeRectangle(sf::Vector2f(UNIT_WIDTH/5, UNIT_HEIGHT/5*2));
+                sf::RectangleShape rightEyeRectangle(sf::Vector2f(UNIT_WIDTH/5, UNIT_HEIGHT/5*2));
+                leftEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                rightEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                leftEyeRectangle.move(UNIT_WIDTH/5*3, UNIT_HEIGHT/5*2);
+                rightEyeRectangle.move(UNIT_WIDTH/5, UNIT_HEIGHT/5*2);
+                leftEyeRectangle.setFillColor(snake.getLeftEyeColor());
+                rightEyeRectangle.setFillColor(snake.getRightEyeColor());
+                window.draw(leftEyeRectangle);
+                window.draw(rightEyeRectangle);
+                break;
+            }
+            case Direction::EAST: {
+                sf::RectangleShape leftEyeRectangle(sf::Vector2f(UNIT_WIDTH/5*2, UNIT_HEIGHT/5));
+                sf::RectangleShape rightEyeRectangle(sf::Vector2f(UNIT_WIDTH/5*2, UNIT_HEIGHT/5));
+                leftEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                rightEyeRectangle.move(snake.getHead().x*UNIT_WIDTH, snake.getHead().y*UNIT_HEIGHT);
+                leftEyeRectangle.move(UNIT_WIDTH/5*2, UNIT_HEIGHT/5);
+                rightEyeRectangle.move(UNIT_WIDTH/5*2, UNIT_HEIGHT/5*3);
+                leftEyeRectangle.setFillColor(snake.getLeftEyeColor());
+                rightEyeRectangle.setFillColor(snake.getRightEyeColor());
+                window.draw(leftEyeRectangle);
+                window.draw(rightEyeRectangle);
+                break;
+            }
+        }
+
+        // Draw paused snake body (with gradual color)
+        for(size_t i=1; i<snake.getSize()-1; i++) {
+            sf::RectangleShape bodyRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
+            float rDistance = (snake.getHeadColor().r-snake.getTailColor().r)/static_cast<float>(snake.getSize()-1);
+            float gDistance = (snake.getHeadColor().g-snake.getTailColor().g)/static_cast<float>(snake.getSize()-1);
+            float bDistance = (snake.getHeadColor().b-snake.getTailColor().b)/static_cast<float>(snake.getSize()-1);
+
+            bodyRectangle.setFillColor(sf::Color( snake.getHeadColor().r - rDistance*i
+                                                , snake.getHeadColor().g - gDistance*i
+                                                , snake.getHeadColor().b - bDistance*i
+                                                , 255/2));
+            bodyRectangle.move(snake.getBody(i).x*UNIT_WIDTH, snake.getBody(i).y*UNIT_HEIGHT);
+            window.draw(bodyRectangle);
+        }
+
+        // Draw paused snake tail
+        sf::RectangleShape tailRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
+        sf::Color tailColor(snake.getTailColor());
+        tailColor.a = 255/2;
+        tailRectangle.setFillColor(tailColor);
+        tailRectangle.move(snake.getBody(snake.getSize()-1).x*UNIT_WIDTH, snake.getBody(snake.getSize()-1).y*UNIT_HEIGHT);
+        window.draw(tailRectangle);
     }
     else {
         // Draw snake head
