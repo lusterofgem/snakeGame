@@ -1,11 +1,13 @@
 # snakeGame
 Use C++ with SFMLto make a **snake game**. 🐍<br>
 <br>
+
 ## How to play:
 When you press "Enter" or "Space", the game will start.<br>
 The snake will move forward to the direction it look at.<br>
 You can press "WASD" or "^v<>" to turn snake head.<br>
 If the snake hit it's body or the map boundary, the snake will dead immediately.<br>
+
 ## How to compile:
 1.Download the source code<br>
 - git clone https://github.com/lusterofgem/snakeGame<br>
@@ -25,9 +27,11 @@ link: https://www.sfml-dev.org/tutorials/2.5/compile-with-cmake.php<br>
 Go in directory snakeGame/build and use terminal with following command call cmake to build.<br>
 - cmake ..<br>
 - cmake --build .<br>
+
 ## Web:
 Also use a web to post this game.<br>
 link: https://github.com/bryan9077/web<br>
+
 ## Game structure description:
 If you are interst with the structure of this game, there are a simple description for this game.<br>
 link: https://github.com/lusterofgem/snakeGameDescription<br>
