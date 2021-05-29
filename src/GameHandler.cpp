@@ -69,7 +69,7 @@ void GameHandler::reset() {
     generateFruit();
     resetSnake();
 }
-
+#include <iostream>///////////////debug
 void GameHandler::run() {
     // move snake
     if(!gameOver && !paused && clock.getElapsedTime().asMilliseconds()>timerMillisecond) {
@@ -85,6 +85,7 @@ void GameHandler::run() {
         }
         else {
             gameOver = true;
+            std::cout << "Game over!" << std::endl;////////////////////////////
         }
         clock.restart();
     }

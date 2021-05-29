@@ -6,12 +6,13 @@
 
 class EventHandler {
     sf::RenderWindow *windowPtr;
+    bool *windowLockPtr;
     GameHandler *gameHandlerPtr;
     // std::thread eventHandlerThread(&EventHandler::runLoop, this);
     std::thread eventHandlerThread = std::thread(&EventHandler::runLoop, this);
 
 public:
-    EventHandler(sf::RenderWindow &window, GameHandler &gameHandler);
+    EventHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler);
     void join();
 
 private:

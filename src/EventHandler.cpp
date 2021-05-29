@@ -1,7 +1,8 @@
 #include "EventHandler.hpp"
 
-EventHandler::EventHandler(sf::RenderWindow &window, GameHandler &gameHandler)
+EventHandler::EventHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler)
 :windowPtr(&window)
+,windowLockPtr(&windowLock)
 ,gameHandlerPtr(&gameHandler) {
 
 }
@@ -11,6 +12,10 @@ void EventHandler::join() {
 }
 
 void EventHandler::run() {
+    if(*windowLockPtr) {
+        return;
+    }
+    *windowLockPtr = true;
     sf::Event event;
     while(windowPtr->pollEvent(event)) {
         // Close window event
@@ -63,6 +68,7 @@ void EventHandler::run() {
             }
         }
     }
+    *windowLockPtr = false;
 }
 
 void EventHandler::runLoop() {

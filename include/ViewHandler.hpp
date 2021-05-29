@@ -8,12 +8,13 @@
 
 class ViewHandler {
     sf::RenderWindow *windowPtr;
+    bool *windowLockPtr;
     GameHandler *gameHandlerPtr;
     // std::thread viewHandlerThread(&ViewHandler::runLoop, this);
     std::thread viewHandlerThread = std::thread(&ViewHandler::runLoop, this);
 
 public:
-    ViewHandler(sf::RenderWindow &window, GameHandler &gameHandler);
+    ViewHandler(sf::RenderWindow &window, bool &windowLock,  GameHandler &gameHandler);
     void join();
 
 private:

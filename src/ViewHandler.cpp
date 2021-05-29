@@ -1,8 +1,9 @@
 #include "ViewHandler.hpp"
 
 // Default Constructor
-ViewHandler::ViewHandler(sf::RenderWindow &window, GameHandler &gameHandler)
+ViewHandler::ViewHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler)
 :windowPtr(&window)
+,windowLockPtr(&windowLock)
 ,gameHandlerPtr(&gameHandler) {
     windowPtr->setVerticalSyncEnabled(true);
 }
@@ -14,10 +15,15 @@ void ViewHandler::join() {
 
 // Refresh game screen
 void ViewHandler::run() {
+    if(*windowLockPtr) {
+        return;
+    }
+    *windowLockPtr = true;
     windowPtr->clear();
     drawSnake(*windowPtr, gameHandlerPtr->getSnake());
     drawFruit(*windowPtr, gameHandlerPtr->getFruit());
-    windowPtr->display();
+    windowPtr->display(); ///////////////////////////////Crash
+    *windowLockPtr = false;
 }
 
 void ViewHandler::runLoop() {
