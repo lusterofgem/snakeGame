@@ -8,7 +8,7 @@ You can press "WASD" or "^v<>" to turn snake head.<br>
 If the snake hit it's body or the map boundary, the snake will dead immediately.<br>
 ## How to compile:
 1.Download the source code<br>
-git clone https://github.com/lusterofgem/snakeGame<br>
+- git clone https://github.com/lusterofgem/snakeGame<br>
 <br>
 2.Install cmake<br>
 link: https://cmake.org/download/<br>
