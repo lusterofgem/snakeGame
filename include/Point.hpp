@@ -2,10 +2,10 @@
 #define POINT_H
 
 struct Point {
-    int x;
-    int y;
+    unsigned int x;
+    unsigned int y;
     Point();
-    Point(int x, int y);
+    Point(unsigned int x, unsigned int y);
     bool operator==(Point point);
 };
 

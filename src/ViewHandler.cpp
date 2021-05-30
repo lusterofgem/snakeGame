@@ -1,4 +1,5 @@
 #include "ViewHandler.hpp"
+// #include <iostream>
 
 // Default Constructor
 ViewHandler::ViewHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler)
@@ -16,8 +17,10 @@ void ViewHandler::join() {
 // Refresh game screen
 void ViewHandler::run() {
     if(*windowLockPtr) {
+        // std::cout << *windowLockPtr << std::endl;
         return;
     }
+    // std::cout << *windowLockPtr << std::endl;
     *windowLockPtr = true;
     windowPtr->clear();
     drawSnake(*windowPtr, gameHandlerPtr->getSnake());
