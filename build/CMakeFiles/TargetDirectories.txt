@@ -1,3 +1,0 @@
-/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/rebuild_cache.dir
-/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/edit_cache.dir
-/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir
