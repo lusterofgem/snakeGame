@@ -13,6 +13,8 @@ GameHandler.hpp
 ../include/GameHandler.hpp
 thread
 -
+mutex
+-
 
 ../include/Fruit.hpp
 SFML/Graphics.hpp
@@ -51,6 +53,8 @@ Direction.hpp
 ../include/ViewHandler.hpp
 thread
 -
+mutex
+-
 SFML/Window.hpp
 -
 GameHandler.hpp
@@ -58,52 +62,28 @@ GameHandler.hpp
 EventHandler.hpp
 ../include/EventHandler.hpp
 
-/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.cpp
+/home/kde/lab/sfml/snakeGame/src/EventHandler.cpp
 EventHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.hpp
+/home/kde/lab/sfml/snakeGame/src/EventHandler.hpp
 
-/home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.cpp
-Fruit.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.hpp
-
-/home/kde/Desktop/lab/sfml/snakeGame/src/GameHandler.cpp
-GameHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/GameHandler.hpp
-cstdlib
--
-ctime
--
-iostream
--
-
-/home/kde/Desktop/lab/sfml/snakeGame/src/Map.cpp
-Map.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/Map.hpp
-
-/home/kde/Desktop/lab/sfml/snakeGame/src/Point.cpp
-Point.hpp
--
-
-/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.cpp
-Snake.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.hpp
-
-/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.cpp
+/home/kde/lab/sfml/snakeGame/src/ViewHandler.cpp
 ViewHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.hpp
+/home/kde/lab/sfml/snakeGame/src/ViewHandler.hpp
 
-/home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp
+/home/kde/lab/sfml/snakeGame/src/snakeGame.cpp
 SFML/Window.hpp
 -
 SFML/Graphics.hpp
 -
 GameHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/GameHandler.hpp
+/home/kde/lab/sfml/snakeGame/src/GameHandler.hpp
 EventHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.hpp
+/home/kde/lab/sfml/snakeGame/src/EventHandler.hpp
 ViewHandler.hpp
-/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.hpp
+/home/kde/lab/sfml/snakeGame/src/ViewHandler.hpp
 iostream
+-
+mutex
 -
 
 /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp

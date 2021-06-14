@@ -4,17 +4,17 @@
 #include "EventHandler.hpp"
 #include "ViewHandler.hpp"
 #include <iostream>
+#include <mutex>
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(800, 600), "Snake");
-    bool windowLock = false;
+    std::mutex windowMutex;
     GameHandler gameHandler(window);
-    // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    EventHandler eventHandler(window, windowLock, gameHandler);
-    // std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    ViewHandler viewHandler(window, windowLock, gameHandler);
-    // std::cout << "Ready" << std::endl;
+    EventHandler eventHandler(window, windowMutex, gameHandler);
+    ViewHandler viewHandler(window, windowMutex, gameHandler);
     gameHandler.join();
+    eventHandler.join();
+    viewHandler.join();
 
     return 0;
 }

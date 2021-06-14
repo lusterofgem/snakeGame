@@ -9,7 +9,7 @@ CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o
  ../include/Map.hpp
  ../include/Point.hpp
  ../include/Snake.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.cpp
+ /home/kde/lab/sfml/snakeGame/src/EventHandler.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -87,7 +87,7 @@ CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o
 CMakeFiles/snakeGame.dir/src/Fruit.cpp.o
  ../include/Fruit.hpp
  ../include/Point.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.cpp
+ /home/kde/lab/sfml/snakeGame/src/Fruit.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -169,7 +169,7 @@ CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o
  ../include/Map.hpp
  ../include/Point.hpp
  ../include/Snake.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/GameHandler.cpp
+ /home/kde/lab/sfml/snakeGame/src/GameHandler.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -247,17 +247,17 @@ CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o
 CMakeFiles/snakeGame.dir/src/Map.cpp.o
  ../include/Map.hpp
  ../include/Point.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/Map.cpp
+ /home/kde/lab/sfml/snakeGame/src/Map.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/System/Vector2.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/System/Vector2.inl
 CMakeFiles/snakeGame.dir/src/Point.cpp.o
  ../include/Point.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/Point.cpp
+ /home/kde/lab/sfml/snakeGame/src/Point.cpp
 CMakeFiles/snakeGame.dir/src/Snake.cpp.o
  ../include/Direction.hpp
  ../include/Point.hpp
  ../include/Snake.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/Snake.cpp
+ /home/kde/lab/sfml/snakeGame/src/Snake.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -341,7 +341,7 @@ CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.o
  ../include/Point.hpp
  ../include/Snake.hpp
  ../include/ViewHandler.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.cpp
+ /home/kde/lab/sfml/snakeGame/src/ViewHandler.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp
@@ -425,7 +425,7 @@ CMakeFiles/snakeGame.dir/src/snakeGame.cpp.o
  ../include/Point.hpp
  ../include/Snake.hpp
  ../include/ViewHandler.hpp
- /home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp
+ /home/kde/lab/sfml/snakeGame/src/snakeGame.cpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Config.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics.hpp
  /home/kde/lib/SFML-2.5.1/include/SFML/Graphics/BlendMode.hpp

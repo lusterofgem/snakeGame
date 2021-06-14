@@ -1,8 +1,8 @@
 #include "EventHandler.hpp"
 
-EventHandler::EventHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler)
+EventHandler::EventHandler(sf::RenderWindow &window, std::mutex &windowMutex, GameHandler &gameHandler)
 :windowPtr(&window)
-,windowLockPtr(&windowLock)
+,windowMutexPtr(&windowMutex)
 ,gameHandlerPtr(&gameHandler) {
 
 }
@@ -12,10 +12,7 @@ void EventHandler::join() {
 }
 
 void EventHandler::run() {
-    if(*windowLockPtr) {
-        return;
-    }
-    *windowLockPtr = true;
+    std::lock_guard<std::mutex> guard(*windowMutexPtr);
     sf::Event event;
     while(windowPtr->pollEvent(event)) {
         // Close window event
@@ -68,11 +65,11 @@ void EventHandler::run() {
             }
         }
     }
-    *windowLockPtr = false;
 }
 
 void EventHandler::runLoop() {
     while(windowPtr->isOpen()) {
         run();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 }

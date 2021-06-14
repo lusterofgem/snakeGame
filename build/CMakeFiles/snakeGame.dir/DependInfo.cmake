@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/EventHandler.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/Fruit.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Fruit.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/GameHandler.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/Map.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Map.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/Point.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Point.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/Snake.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Snake.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/ViewHandler.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.o"
-  "/home/kde/Desktop/lab/sfml/snakeGame/src/snakeGame.cpp" "/home/kde/Desktop/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/snakeGame.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/EventHandler.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/EventHandler.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/Fruit.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Fruit.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/GameHandler.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/GameHandler.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/Map.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Map.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/Point.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Point.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/Snake.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/Snake.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/ViewHandler.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/ViewHandler.cpp.o"
+  "/home/kde/lab/sfml/snakeGame/src/snakeGame.cpp" "/home/kde/lab/sfml/snakeGame/build/CMakeFiles/snakeGame.dir/src/snakeGame.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

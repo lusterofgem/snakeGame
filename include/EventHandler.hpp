@@ -3,16 +3,16 @@
 
 #include "GameHandler.hpp"
 #include <thread>
+#include <mutex>
 
 class EventHandler {
     sf::RenderWindow *windowPtr;
-    bool *windowLockPtr;
+    std::mutex *windowMutexPtr;
     GameHandler *gameHandlerPtr;
-    // std::thread eventHandlerThread(&EventHandler::runLoop, this);
     std::thread eventHandlerThread = std::thread(&EventHandler::runLoop, this);
 
 public:
-    EventHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler);
+    EventHandler(sf::RenderWindow &window, std::mutex &windowMutex, GameHandler &gameHandler);
     void join();
 
 private:

@@ -4,10 +4,7 @@
 
 GameHandler::GameHandler(sf::RenderWindow &window)
 :windowPtr(&window)
-,clock()
-,map(32, 24)
-,snake()
-,fruit() {
+,map(32, 24) {
     // Set rand seed
     std::srand(std::time(nullptr));
     reset();
@@ -69,10 +66,10 @@ void GameHandler::reset() {
     generateFruit();
     resetSnake();
 }
-#include <iostream>///////////////debug
+
 void GameHandler::run() {
-    // move snake
-    if(!gameOver && !paused && clock.getElapsedTime().asMilliseconds()>timerMillisecond) {
+    if(!gameOver && !paused) {
+        // move snake
         Point targetPoint = snake.getLookedPoint();
         if(map.isPointInMap(targetPoint) && !snake.isPointOnBody(targetPoint)) {
             if(targetPoint == fruit.getPoint()) {
@@ -85,15 +82,14 @@ void GameHandler::run() {
         }
         else {
             gameOver = true;
-            std::cout << "Game over!" << std::endl;////////////////////////////
         }
-        clock.restart();
     }
 }
 
 void GameHandler::runLoop() {
     while(windowPtr->isOpen()) {
         run();
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 }
 

@@ -1,10 +1,9 @@
 #include "ViewHandler.hpp"
-// #include <iostream>
 
 // Default Constructor
-ViewHandler::ViewHandler(sf::RenderWindow &window, bool &windowLock, GameHandler &gameHandler)
+ViewHandler::ViewHandler(sf::RenderWindow &window, std::mutex &windowMutex, GameHandler &gameHandler)
 :windowPtr(&window)
-,windowLockPtr(&windowLock)
+,windowMutexPtr(&windowMutex)
 ,gameHandlerPtr(&gameHandler) {
     windowPtr->setVerticalSyncEnabled(true);
 }
@@ -16,22 +15,17 @@ void ViewHandler::join() {
 
 // Refresh game screen
 void ViewHandler::run() {
-    if(*windowLockPtr) {
-        // std::cout << *windowLockPtr << std::endl;
-        return;
-    }
-    // std::cout << *windowLockPtr << std::endl;
-    *windowLockPtr = true;
+    std::lock_guard<std::mutex> guard(*windowMutexPtr);
     windowPtr->clear();
     drawSnake(*windowPtr, gameHandlerPtr->getSnake());
     drawFruit(*windowPtr, gameHandlerPtr->getFruit());
-    windowPtr->display(); ///////////////////////////////Crash
-    *windowLockPtr = false;
+    windowPtr->display();
 }
 
 void ViewHandler::runLoop() {
-    while(windowPtr->isOpen()) {
+    while(windowPtr->isOpen()){
         run();
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
 }
 
@@ -206,7 +200,7 @@ void ViewHandler::drawSnake(sf::RenderWindow &window, Snake &snake) {
         // Draw snake body (with gradual color)
         for(size_t i=1; i<snake.getSize()-1; i++) {
             sf::RectangleShape bodyRectangle(sf::Vector2f(UNIT_WIDTH, UNIT_HEIGHT));
-            float rDistance = (snake.getHeadColor().r-snake.getTailColor().r)/static_cast<float>(snake.getSize()-1); // HERE
+            float rDistance = (snake.getHeadColor().r-snake.getTailColor().r)/static_cast<float>(snake.getSize()-1);
             float gDistance = (snake.getHeadColor().g-snake.getTailColor().g)/static_cast<float>(snake.getSize()-1);
             float bDistance = (snake.getHeadColor().b-snake.getTailColor().b)/static_cast<float>(snake.getSize()-1);
 
