@@ -1,5 +1,5 @@
 # snakeGame
-Use C++ with SFMLto make a **snake game**. 🐍<br>
+Use C++ with SFML to make a **snake game**. 🐍<br>
 <br>
 
 ## How to play:
