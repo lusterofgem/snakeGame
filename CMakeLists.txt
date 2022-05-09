@@ -2,20 +2,20 @@ cmake_minimum_required(VERSION 3.16)
 project(snakeGame)
 
 # SFML
-set(SFML_STATIC_LIBRARIES TRUE)
-set(SFML_DIR "~/lib/SFML-2.5.1/build/")
+#set(SFML_STATIC_LIBRARIES TRUE)
+set(SFML_DIR "C:/SFML-2.5.1/build/")
 find_package(SFML COMPONENTS graphics audio window)
 
 # executable
 add_executable(snakeGame
-               src/snakeGame
-               src/GameHandler
-               src/ViewHandler
-               src/EventHandler
-               src/Map
-               src/Snake
-               src/Fruit
-               src/Point)
+               src/snakeGame.cpp
+               src/GameHandler.cpp
+               src/ViewHandler.cpp
+               src/EventHandler.cpp
+               src/Map.cpp
+               src/Snake.cpp
+               src/Fruit.cpp
+               src/Point.cpp)
 
 # include
 target_include_directories(snakeGame
