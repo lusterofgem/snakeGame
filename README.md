@@ -31,7 +31,3 @@ Go in directory snakeGame/build and use terminal with following command call cma
 ## Web:
 Also use a web to post this game.<br>
 link: https://github.com/alex960041/web<br>
-
-## Game structure description:
-If you are interst with the structure of this game, there are a simple description for this game.<br>
-link: https://github.com/lusterofgem/snakeGameDescription<br>
